@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<talendfile:ContextType xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:talendfile="platform:/resource/org.talend.model/model/TalendFile.xsd" xmi:id="_Tg934HTpEeqtTu3fQ6M9FQ" confirmationNeeded="false" name="Default">
+  <contextParameter xmi:id="_Tg934XTpEeqtTu3fQ6M9FQ" comment="" name="test1_Port" prompt="test1_Port?" promptNeeded="false" type="id_String" value="1521"/>
+  <contextParameter xmi:id="_Tg934nTpEeqtTu3fQ6M9FQ" comment="" name="test1_AdditionalParams" prompt="test1_AdditionalParams?" promptNeeded="false" type="id_String" value=""/>
+  <contextParameter xmi:id="_Tg9343TpEeqtTu3fQ6M9FQ" comment="" name="test1_Password" prompt="test1_Password?" promptNeeded="false" type="id_Password" value="iJbeR5zO7AdpB8Zpo7w42w=="/>
+  <contextParameter xmi:id="_Tg935HTpEeqtTu3fQ6M9FQ" comment="" name="test1_Server" prompt="test1_Server?" promptNeeded="false" type="id_String" value="localhost"/>
+  <contextParameter xmi:id="_Tg935XTpEeqtTu3fQ6M9FQ" comment="" name="test1_Sid" prompt="test1_Sid?" promptNeeded="false" type="id_String" value="orcl"/>
+  <contextParameter xmi:id="_Tg935nTpEeqtTu3fQ6M9FQ" comment="" name="test1_Login" prompt="test1_Login?" promptNeeded="false" type="id_String" value="system"/>
+  <contextParameter xmi:id="_Tg9353TpEeqtTu3fQ6M9FQ" comment="" name="test1_Schema" prompt="test1_Schema?" promptNeeded="false" type="id_String" value="SYSTEM"/>
+</talendfile:ContextType>

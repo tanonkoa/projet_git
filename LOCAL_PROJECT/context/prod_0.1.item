@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<talendfile:ContextType xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:talendfile="platform:/resource/org.talend.model/model/TalendFile.xsd" xmi:id="_aUgrgHQpEeqmXqV7gTcw0Q" confirmationNeeded="false" name="Default">
+  <contextParameter xmi:id="_aUgrgXQpEeqmXqV7gTcw0Q" comment="" name="prod_Encoding" prompt="prod_Encoding?" promptNeeded="false" type="id_String" value="ISO-8859-15"/>
+  <contextParameter xmi:id="_aUgrgnQpEeqmXqV7gTcw0Q" comment="" name="prod_FieldSeparator" prompt="prod_FieldSeparator?" promptNeeded="false" type="id_String" value="&quot;;&quot;"/>
+  <contextParameter xmi:id="_aUgrg3QpEeqmXqV7gTcw0Q" comment="" name="prod_RowSeparator" prompt="prod_RowSeparator?" promptNeeded="false" type="id_String" value="&quot;\n&quot;"/>
+  <contextParameter xmi:id="_aUgrhHQpEeqmXqV7gTcw0Q" comment="" name="prod_File" prompt="prod_File?" promptNeeded="false" type="id_File" value="C:/Talend/REP_FORM/SOURCE/production.txt"/>
+</talendfile:ContextType>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:TalendMetadata="http://www.talend.org/metadata/connection/2010" xmlns:orgomg.cwm.resource.relational="http:///orgomg/cwm/resource/relational.ecore">
+  <TalendMetadata:DatabaseConnection xmi:id="_JbYC0HQ3EeqKFY5oJ_VxLA" name="tt" id="_96sN4HQ2EeqKFY5oJ_VxLA" label="tt" dataPackage="_JdeUkHQ3EeqKFY5oJ_VxLA" ContextMode="true" ContextId="_Inpf0HQ3EeqKFY5oJ_VxLA" contextName="Default" DatabaseType="Oracle with SID" DriverClass="oracle.jdbc.OracleDriver" URL="jdbc:oracle:thin:@localhost:1521:orcl" dbVersionString="ORACLE_11" Port="context.tt_Port" Username="context.tt_Login" Password="context.tt_Password" ServerName="context.tt_Server" DatasourceName="" FileFieldName="" SID="context.tt_Sid" SqlSynthax="" StringQuote="" NullChar="" DbmsId="oracle_id" ProductId="ORACLE" AdditionalParams="context.tt_AdditionalParams" StandardSQL="true" SQLMode="false" UiSchema="context.tt_Schema">
+    <taggedValue xmi:id="_JbZ4AHQ3EeqKFY5oJ_VxLA" tag="Is Conn Need Reload" value="false"/>
+    <taggedValue xmi:id="_Jb5AMHQ3EeqKFY5oJ_VxLA" tag="package filter" value=""/>
+    <taggedValue xmi:id="_JcHpsHQ3EeqKFY5oJ_VxLA" tag="Status" value=""/>
+    <taggedValue xmi:id="_JcHpsXQ3EeqKFY5oJ_VxLA" tag="Version" value="0.1"/>
+    <taggedValue xmi:id="_JcHpsnQ3EeqKFY5oJ_VxLA" tag="Purpose" value=""/>
+    <taggedValue xmi:id="_JcHps3Q3EeqKFY5oJ_VxLA" tag="Description" value=""/>
+    <taggedValue xmi:id="_JcHptHQ3EeqKFY5oJ_VxLA" tag="Author" value=""/>
+    <taggedValue xmi:id="_JcHptXQ3EeqKFY5oJ_VxLA" tag="otherParameter"/>
+    <taggedValue xmi:id="_JcqcQHQ3EeqKFY5oJ_VxLA" tag="DB ProductName" value="Oracle"/>
+    <taggedValue xmi:id="_JcqcQXQ3EeqKFY5oJ_VxLA" tag="DB ProductVersion" value="Oracle Database 11g Enterprise Edition Release 11.2.0.3.0 - 64bit Production&#xA;With the Partitioning, OLAP, Data Mining and Real Application Testing options"/>
+    <taggedValue xmi:id="_JcqcQnQ3EeqKFY5oJ_VxLA" tag="DB IdentifierQuoteString" value="&quot;"/>
+    <parameters xmi:id="_JbZ4AXQ3EeqKFY5oJ_VxLA" key="CONN_PARA_KEY_USERNAME" value="context.tt_Login"/>
+  </TalendMetadata:DatabaseConnection>
+  <orgomg.cwm.resource.relational:Schema xmi:id="_JdeUkHQ3EeqKFY5oJ_VxLA" name="SYSTEM" dataManager="_JbYC0HQ3EeqKFY5oJ_VxLA"/>
+</xmi:XMI>
