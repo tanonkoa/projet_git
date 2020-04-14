@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<talendfile:ContextType xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:talendfile="platform:/resource/org.talend.model/model/TalendFile.xsd" xmi:id="_OpWTQHssEeqfO5bj6mV8xw" confirmationNeeded="false" name="Default">
+  <contextParameter xmi:id="_OpWTQXssEeqfO5bj6mV8xw" comment="" name="exa_RowSeparator" prompt="exa_RowSeparator?" promptNeeded="false" type="id_String" value="&quot;\n&quot;"/>
+  <contextParameter xmi:id="_OpWTQnssEeqfO5bj6mV8xw" comment="" name="exa_Header" prompt="exa_Header?" promptNeeded="false" type="id_Integer" value="1"/>
+  <contextParameter xmi:id="_OpWTQ3ssEeqfO5bj6mV8xw" comment="" name="exa_FieldSeparator" prompt="exa_FieldSeparator?" promptNeeded="false" type="id_String" value="&quot;;&quot;"/>
+  <contextParameter xmi:id="_OpWTRHssEeqfO5bj6mV8xw" comment="" name="exa_File" prompt="exa_File?" promptNeeded="false" type="id_File" value="C:/Talend/REP_FORM/SOURCE/Ressources_humaine.csv"/>
+  <contextParameter xmi:id="_OpWTRXssEeqfO5bj6mV8xw" comment="" name="exa_Encoding" prompt="exa_Encoding?" promptNeeded="false" type="id_String" value="ISO-8859-15"/>
+</talendfile:ContextType>

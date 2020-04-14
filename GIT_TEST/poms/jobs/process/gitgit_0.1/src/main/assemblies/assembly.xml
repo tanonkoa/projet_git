@@ -214,6 +214,13 @@
 			<outputDirectory>lib</outputDirectory>
 			<includes>
 				<include>org.example.git_test.code:routines</include>
+				<include>org.talend.libraries:commons-collections4-4.1</include>
+				<include>org.talend.libraries:geronimo-stax-api_1.0_spec-1.0.1</include>
+				<include>org.talend.libraries:poi-3.16-20170419_modified_talend</include>
+				<include>org.talend.libraries:poi-ooxml-3.16-20170419_modified_talend</include>
+				<include>org.talend.libraries:poi-ooxml-schemas-3.16-20170419</include>
+				<include>org.talend.libraries:poi-scratchpad-3.16-20170419</include>
+				<include>org.talend.libraries:xmlbeans-2.6.0</include>
 			</includes>
 			<!-- without version for talend libraries -->
 			<outputFileNameMapping>${artifact.artifactId}.${artifact.extension}

@@ -274,6 +274,28 @@ public class gitgit implements TalendJob {
 		}
 	}
 
+	public void tFileInputExcel_1_error(Exception exception,
+			String errorComponent, final java.util.Map<String, Object> globalMap)
+			throws TalendException {
+
+		end_Hash.put(errorComponent, System.currentTimeMillis());
+
+		status = "failure";
+
+		tFileInputExcel_1_onSubJobError(exception, errorComponent, globalMap);
+	}
+
+	public void tLogRow_1_error(Exception exception, String errorComponent,
+			final java.util.Map<String, Object> globalMap)
+			throws TalendException {
+
+		end_Hash.put(errorComponent, System.currentTimeMillis());
+
+		status = "failure";
+
+		tFileInputExcel_1_onSubJobError(exception, errorComponent, globalMap);
+	}
+
 	public void tMsgBox_1_error(Exception exception, String errorComponent,
 			final java.util.Map<String, Object> globalMap)
 			throws TalendException {
@@ -282,10 +304,10 @@ public class gitgit implements TalendJob {
 
 		status = "failure";
 
-		tMsgBox_1_onSubJobError(exception, errorComponent, globalMap);
+		tFileInputExcel_1_onSubJobError(exception, errorComponent, globalMap);
 	}
 
-	public void tMsgBox_1_onSubJobError(Exception exception,
+	public void tFileInputExcel_1_onSubJobError(Exception exception,
 			String errorComponent, final java.util.Map<String, Object> globalMap)
 			throws TalendException {
 
@@ -296,9 +318,544 @@ public class gitgit implements TalendJob {
 
 	}
 
-	public void tMsgBox_1Process(final java.util.Map<String, Object> globalMap)
+	public static class row2Struct implements
+			routines.system.IPersistableRow<row2Struct> {
+		final static byte[] commonByteArrayLock_GIT_TEST_gitgit = new byte[0];
+		static byte[] commonByteArray_GIT_TEST_gitgit = new byte[0];
+		protected static final int DEFAULT_HASHCODE = 1;
+		protected static final int PRIME = 31;
+		protected int hashCode = DEFAULT_HASHCODE;
+		public boolean hashCodeDirty = true;
+
+		public String loopKey;
+
+		public String CustomerID;
+
+		public String getCustomerID() {
+			return this.CustomerID;
+		}
+
+		public String CustomerName;
+
+		public String getCustomerName() {
+			return this.CustomerName;
+		}
+
+		public String ContactName;
+
+		public String getContactName() {
+			return this.ContactName;
+		}
+
+		public String Adress;
+
+		public String getAdress() {
+			return this.Adress;
+		}
+
+		public String City;
+
+		public String getCity() {
+			return this.City;
+		}
+
+		public String PostalCode;
+
+		public String getPostalCode() {
+			return this.PostalCode;
+		}
+
+		public String Country;
+
+		public String getCountry() {
+			return this.Country;
+		}
+
+		@Override
+		public int hashCode() {
+			if (this.hashCodeDirty) {
+				final int prime = PRIME;
+				int result = DEFAULT_HASHCODE;
+
+				result = prime
+						* result
+						+ ((this.CustomerID == null) ? 0 : this.CustomerID
+								.hashCode());
+
+				this.hashCode = result;
+				this.hashCodeDirty = false;
+			}
+			return this.hashCode;
+		}
+
+		@Override
+		public boolean equals(Object obj) {
+			if (this == obj)
+				return true;
+			if (obj == null)
+				return false;
+			if (getClass() != obj.getClass())
+				return false;
+			final row2Struct other = (row2Struct) obj;
+
+			if (this.CustomerID == null) {
+				if (other.CustomerID != null)
+					return false;
+
+			} else if (!this.CustomerID.equals(other.CustomerID))
+
+				return false;
+
+			return true;
+		}
+
+		public void copyDataTo(row2Struct other) {
+
+			other.CustomerID = this.CustomerID;
+			other.CustomerName = this.CustomerName;
+			other.ContactName = this.ContactName;
+			other.Adress = this.Adress;
+			other.City = this.City;
+			other.PostalCode = this.PostalCode;
+			other.Country = this.Country;
+
+		}
+
+		public void copyKeysDataTo(row2Struct other) {
+
+			other.CustomerID = this.CustomerID;
+
+		}
+
+		private String readString(ObjectInputStream dis) throws IOException {
+			String strReturn = null;
+			int length = 0;
+			length = dis.readInt();
+			if (length == -1) {
+				strReturn = null;
+			} else {
+				if (length > commonByteArray_GIT_TEST_gitgit.length) {
+					if (length < 1024
+							&& commonByteArray_GIT_TEST_gitgit.length == 0) {
+						commonByteArray_GIT_TEST_gitgit = new byte[1024];
+					} else {
+						commonByteArray_GIT_TEST_gitgit = new byte[2 * length];
+					}
+				}
+				dis.readFully(commonByteArray_GIT_TEST_gitgit, 0, length);
+				strReturn = new String(commonByteArray_GIT_TEST_gitgit, 0,
+						length, utf8Charset);
+			}
+			return strReturn;
+		}
+
+		private void writeString(String str, ObjectOutputStream dos)
+				throws IOException {
+			if (str == null) {
+				dos.writeInt(-1);
+			} else {
+				byte[] byteArray = str.getBytes(utf8Charset);
+				dos.writeInt(byteArray.length);
+				dos.write(byteArray);
+			}
+		}
+
+		public void readData(ObjectInputStream dis) {
+
+			synchronized (commonByteArrayLock_GIT_TEST_gitgit) {
+
+				try {
+
+					int length = 0;
+
+					this.CustomerID = readString(dis);
+
+					this.CustomerName = readString(dis);
+
+					this.ContactName = readString(dis);
+
+					this.Adress = readString(dis);
+
+					this.City = readString(dis);
+
+					this.PostalCode = readString(dis);
+
+					this.Country = readString(dis);
+
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+
+				}
+
+			}
+
+		}
+
+		public void writeData(ObjectOutputStream dos) {
+			try {
+
+				// String
+
+				writeString(this.CustomerID, dos);
+
+				// String
+
+				writeString(this.CustomerName, dos);
+
+				// String
+
+				writeString(this.ContactName, dos);
+
+				// String
+
+				writeString(this.Adress, dos);
+
+				// String
+
+				writeString(this.City, dos);
+
+				// String
+
+				writeString(this.PostalCode, dos);
+
+				// String
+
+				writeString(this.Country, dos);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+
+		}
+
+		public String toString() {
+
+			StringBuilder sb = new StringBuilder();
+			sb.append(super.toString());
+			sb.append("[");
+			sb.append("CustomerID=" + CustomerID);
+			sb.append(",CustomerName=" + CustomerName);
+			sb.append(",ContactName=" + ContactName);
+			sb.append(",Adress=" + Adress);
+			sb.append(",City=" + City);
+			sb.append(",PostalCode=" + PostalCode);
+			sb.append(",Country=" + Country);
+			sb.append("]");
+
+			return sb.toString();
+		}
+
+		/**
+		 * Compare keys
+		 */
+		public int compareTo(row2Struct other) {
+
+			int returnValue = -1;
+
+			returnValue = checkNullsAndCompare(this.CustomerID,
+					other.CustomerID);
+			if (returnValue != 0) {
+				return returnValue;
+			}
+
+			return returnValue;
+		}
+
+		private int checkNullsAndCompare(Object object1, Object object2) {
+			int returnValue = 0;
+			if (object1 instanceof Comparable && object2 instanceof Comparable) {
+				returnValue = ((Comparable) object1).compareTo(object2);
+			} else if (object1 != null && object2 != null) {
+				returnValue = compareStrings(object1.toString(),
+						object2.toString());
+			} else if (object1 == null && object2 != null) {
+				returnValue = 1;
+			} else if (object1 != null && object2 == null) {
+				returnValue = -1;
+			} else {
+				returnValue = 0;
+			}
+
+			return returnValue;
+		}
+
+		private int compareStrings(String string1, String string2) {
+			return string1.compareTo(string2);
+		}
+
+	}
+
+	public static class row1Struct implements
+			routines.system.IPersistableRow<row1Struct> {
+		final static byte[] commonByteArrayLock_GIT_TEST_gitgit = new byte[0];
+		static byte[] commonByteArray_GIT_TEST_gitgit = new byte[0];
+		protected static final int DEFAULT_HASHCODE = 1;
+		protected static final int PRIME = 31;
+		protected int hashCode = DEFAULT_HASHCODE;
+		public boolean hashCodeDirty = true;
+
+		public String loopKey;
+
+		public String CustomerID;
+
+		public String getCustomerID() {
+			return this.CustomerID;
+		}
+
+		public String CustomerName;
+
+		public String getCustomerName() {
+			return this.CustomerName;
+		}
+
+		public String ContactName;
+
+		public String getContactName() {
+			return this.ContactName;
+		}
+
+		public String Adress;
+
+		public String getAdress() {
+			return this.Adress;
+		}
+
+		public String City;
+
+		public String getCity() {
+			return this.City;
+		}
+
+		public String PostalCode;
+
+		public String getPostalCode() {
+			return this.PostalCode;
+		}
+
+		public String Country;
+
+		public String getCountry() {
+			return this.Country;
+		}
+
+		@Override
+		public int hashCode() {
+			if (this.hashCodeDirty) {
+				final int prime = PRIME;
+				int result = DEFAULT_HASHCODE;
+
+				result = prime
+						* result
+						+ ((this.CustomerID == null) ? 0 : this.CustomerID
+								.hashCode());
+
+				this.hashCode = result;
+				this.hashCodeDirty = false;
+			}
+			return this.hashCode;
+		}
+
+		@Override
+		public boolean equals(Object obj) {
+			if (this == obj)
+				return true;
+			if (obj == null)
+				return false;
+			if (getClass() != obj.getClass())
+				return false;
+			final row1Struct other = (row1Struct) obj;
+
+			if (this.CustomerID == null) {
+				if (other.CustomerID != null)
+					return false;
+
+			} else if (!this.CustomerID.equals(other.CustomerID))
+
+				return false;
+
+			return true;
+		}
+
+		public void copyDataTo(row1Struct other) {
+
+			other.CustomerID = this.CustomerID;
+			other.CustomerName = this.CustomerName;
+			other.ContactName = this.ContactName;
+			other.Adress = this.Adress;
+			other.City = this.City;
+			other.PostalCode = this.PostalCode;
+			other.Country = this.Country;
+
+		}
+
+		public void copyKeysDataTo(row1Struct other) {
+
+			other.CustomerID = this.CustomerID;
+
+		}
+
+		private String readString(ObjectInputStream dis) throws IOException {
+			String strReturn = null;
+			int length = 0;
+			length = dis.readInt();
+			if (length == -1) {
+				strReturn = null;
+			} else {
+				if (length > commonByteArray_GIT_TEST_gitgit.length) {
+					if (length < 1024
+							&& commonByteArray_GIT_TEST_gitgit.length == 0) {
+						commonByteArray_GIT_TEST_gitgit = new byte[1024];
+					} else {
+						commonByteArray_GIT_TEST_gitgit = new byte[2 * length];
+					}
+				}
+				dis.readFully(commonByteArray_GIT_TEST_gitgit, 0, length);
+				strReturn = new String(commonByteArray_GIT_TEST_gitgit, 0,
+						length, utf8Charset);
+			}
+			return strReturn;
+		}
+
+		private void writeString(String str, ObjectOutputStream dos)
+				throws IOException {
+			if (str == null) {
+				dos.writeInt(-1);
+			} else {
+				byte[] byteArray = str.getBytes(utf8Charset);
+				dos.writeInt(byteArray.length);
+				dos.write(byteArray);
+			}
+		}
+
+		public void readData(ObjectInputStream dis) {
+
+			synchronized (commonByteArrayLock_GIT_TEST_gitgit) {
+
+				try {
+
+					int length = 0;
+
+					this.CustomerID = readString(dis);
+
+					this.CustomerName = readString(dis);
+
+					this.ContactName = readString(dis);
+
+					this.Adress = readString(dis);
+
+					this.City = readString(dis);
+
+					this.PostalCode = readString(dis);
+
+					this.Country = readString(dis);
+
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+
+				}
+
+			}
+
+		}
+
+		public void writeData(ObjectOutputStream dos) {
+			try {
+
+				// String
+
+				writeString(this.CustomerID, dos);
+
+				// String
+
+				writeString(this.CustomerName, dos);
+
+				// String
+
+				writeString(this.ContactName, dos);
+
+				// String
+
+				writeString(this.Adress, dos);
+
+				// String
+
+				writeString(this.City, dos);
+
+				// String
+
+				writeString(this.PostalCode, dos);
+
+				// String
+
+				writeString(this.Country, dos);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+
+		}
+
+		public String toString() {
+
+			StringBuilder sb = new StringBuilder();
+			sb.append(super.toString());
+			sb.append("[");
+			sb.append("CustomerID=" + CustomerID);
+			sb.append(",CustomerName=" + CustomerName);
+			sb.append(",ContactName=" + ContactName);
+			sb.append(",Adress=" + Adress);
+			sb.append(",City=" + City);
+			sb.append(",PostalCode=" + PostalCode);
+			sb.append(",Country=" + Country);
+			sb.append("]");
+
+			return sb.toString();
+		}
+
+		/**
+		 * Compare keys
+		 */
+		public int compareTo(row1Struct other) {
+
+			int returnValue = -1;
+
+			returnValue = checkNullsAndCompare(this.CustomerID,
+					other.CustomerID);
+			if (returnValue != 0) {
+				return returnValue;
+			}
+
+			return returnValue;
+		}
+
+		private int checkNullsAndCompare(Object object1, Object object2) {
+			int returnValue = 0;
+			if (object1 instanceof Comparable && object2 instanceof Comparable) {
+				returnValue = ((Comparable) object1).compareTo(object2);
+			} else if (object1 != null && object2 != null) {
+				returnValue = compareStrings(object1.toString(),
+						object2.toString());
+			} else if (object1 == null && object2 != null) {
+				returnValue = 1;
+			} else if (object1 != null && object2 == null) {
+				returnValue = -1;
+			} else {
+				returnValue = 0;
+			}
+
+			return returnValue;
+		}
+
+		private int compareStrings(String string1, String string2) {
+			return string1.compareTo(string2);
+		}
+
+	}
+
+	public void tFileInputExcel_1Process(
+			final java.util.Map<String, Object> globalMap)
 			throws TalendException {
-		globalMap.put("tMsgBox_1_SUBPROCESS_STATE", 0);
+		globalMap.put("tFileInputExcel_1_SUBPROCESS_STATE", 0);
 
 		final boolean execStat = this.execStat;
 
@@ -318,6 +875,9 @@ public class gitgit implements TalendJob {
 			if (resumeIt || globalResumeTicket) { // start the resume
 				globalResumeTicket = true;
 
+				row1Struct row1 = new row1Struct();
+				row1Struct row2 = row1;
+
 				/**
 				 * [tMsgBox_1 begin ] start
 				 */
@@ -327,6 +887,14 @@ public class gitgit implements TalendJob {
 
 				currentComponent = "tMsgBox_1";
 
+				if (execStat) {
+					if (resourceMap.get("inIterateVComp") == null) {
+
+						runStat.updateStatOnConnection("row2" + iterateId, 0, 0);
+
+					}
+				}
+
 				int tos_count_tMsgBox_1 = 0;
 
 				/**
@@ -334,46 +902,811 @@ public class gitgit implements TalendJob {
 				 */
 
 				/**
-				 * [tMsgBox_1 main ] start
+				 * [tLogRow_1 begin ] start
 				 */
 
-				currentComponent = "tMsgBox_1";
+				ok_Hash.put("tLogRow_1", false);
+				start_Hash.put("tLogRow_1", System.currentTimeMillis());
 
-				int messageIcontMsgBox_1 = javax.swing.JOptionPane.INFORMATION_MESSAGE;
-				String titletMsgBox_1 = "Talend Open Studio";
-				String messagetMsgBox_1 = "Hello world!";
-				String resulttMsgBox_1 = null;
+				currentComponent = "tLogRow_1";
 
-				javax.swing.JOptionPane.showMessageDialog(null,
-						messagetMsgBox_1, titletMsgBox_1, messageIcontMsgBox_1);
-				resulttMsgBox_1 = String.valueOf(1);
+				if (execStat) {
+					if (resourceMap.get("inIterateVComp") == null) {
 
-				globalMap.put("tMsgBox_1_RESULT", resulttMsgBox_1);
+						runStat.updateStatOnConnection("row1" + iterateId, 0, 0);
 
-				tos_count_tMsgBox_1++;
+					}
+				}
+
+				int tos_count_tLogRow_1 = 0;
+
+				// /////////////////////
+
+				class Util_tLogRow_1 {
+
+					String[] des_top = { ".", ".", "-", "+" };
+
+					String[] des_head = { "|=", "=|", "-", "+" };
+
+					String[] des_bottom = { "'", "'", "-", "+" };
+
+					String name = "";
+
+					java.util.List<String[]> list = new java.util.ArrayList<String[]>();
+
+					int[] colLengths = new int[7];
+
+					public void addRow(String[] row) {
+
+						for (int i = 0; i < 7; i++) {
+							if (row[i] != null) {
+								colLengths[i] = Math.max(colLengths[i],
+										row[i].length());
+							}
+						}
+						list.add(row);
+					}
+
+					public void setTableName(String name) {
+
+						this.name = name;
+					}
+
+					public StringBuilder format() {
+
+						StringBuilder sb = new StringBuilder();
+
+						sb.append(print(des_top));
+
+						int totals = 0;
+						for (int i = 0; i < colLengths.length; i++) {
+							totals = totals + colLengths[i];
+						}
+
+						// name
+						sb.append("|");
+						int k = 0;
+						for (k = 0; k < (totals + 6 - name.length()) / 2; k++) {
+							sb.append(' ');
+						}
+						sb.append(name);
+						for (int i = 0; i < totals + 6 - name.length() - k; i++) {
+							sb.append(' ');
+						}
+						sb.append("|\n");
+
+						// head and rows
+						sb.append(print(des_head));
+						for (int i = 0; i < list.size(); i++) {
+
+							String[] row = list.get(i);
+
+							java.util.Formatter formatter = new java.util.Formatter(
+									new StringBuilder());
+
+							StringBuilder sbformat = new StringBuilder();
+							sbformat.append("|%1$-");
+							sbformat.append(colLengths[0]);
+							sbformat.append("s");
+
+							sbformat.append("|%2$-");
+							sbformat.append(colLengths[1]);
+							sbformat.append("s");
+
+							sbformat.append("|%3$-");
+							sbformat.append(colLengths[2]);
+							sbformat.append("s");
+
+							sbformat.append("|%4$-");
+							sbformat.append(colLengths[3]);
+							sbformat.append("s");
+
+							sbformat.append("|%5$-");
+							sbformat.append(colLengths[4]);
+							sbformat.append("s");
+
+							sbformat.append("|%6$-");
+							sbformat.append(colLengths[5]);
+							sbformat.append("s");
+
+							sbformat.append("|%7$-");
+							sbformat.append(colLengths[6]);
+							sbformat.append("s");
+
+							sbformat.append("|\n");
+
+							formatter.format(sbformat.toString(),
+									(Object[]) row);
+
+							sb.append(formatter.toString());
+							if (i == 0)
+								sb.append(print(des_head)); // print the head
+						}
+
+						// end
+						sb.append(print(des_bottom));
+						return sb;
+					}
+
+					private StringBuilder print(String[] fillChars) {
+						StringBuilder sb = new StringBuilder();
+						// first column
+						sb.append(fillChars[0]);
+						for (int i = 0; i < colLengths[0]
+								- fillChars[0].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+
+						for (int i = 0; i < colLengths[1]
+								- fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+						for (int i = 0; i < colLengths[2]
+								- fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+						for (int i = 0; i < colLengths[3]
+								- fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+						for (int i = 0; i < colLengths[4]
+								- fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+						for (int i = 0; i < colLengths[5]
+								- fillChars[3].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[3]);
+
+						// last column
+						for (int i = 0; i < colLengths[6]
+								- fillChars[1].length() + 1; i++) {
+							sb.append(fillChars[2]);
+						}
+						sb.append(fillChars[1]);
+						sb.append("\n");
+						return sb;
+					}
+
+					public boolean isTableEmpty() {
+						if (list.size() > 1)
+							return false;
+						return true;
+					}
+				}
+				Util_tLogRow_1 util_tLogRow_1 = new Util_tLogRow_1();
+				util_tLogRow_1.setTableName("tLogRow_1");
+				util_tLogRow_1.addRow(new String[] { "CustomerID",
+						"CustomerName", "ContactName", "Adress", "City",
+						"PostalCode", "Country", });
+				StringBuilder strBuffer_tLogRow_1 = null;
+				int nb_line_tLogRow_1 = 0;
+				// /////////////////////
 
 				/**
-				 * [tMsgBox_1 main ] stop
+				 * [tLogRow_1 begin ] stop
 				 */
 
 				/**
-				 * [tMsgBox_1 process_data_begin ] start
+				 * [tFileInputExcel_1 begin ] start
 				 */
 
-				currentComponent = "tMsgBox_1";
+				ok_Hash.put("tFileInputExcel_1", false);
+				start_Hash.put("tFileInputExcel_1", System.currentTimeMillis());
+
+				currentComponent = "tFileInputExcel_1";
+
+				int tos_count_tFileInputExcel_1 = 0;
+
+				class RegexUtil_tFileInputExcel_1 {
+
+					public java.util.List<org.apache.poi.xssf.usermodel.XSSFSheet> getSheets(
+							org.apache.poi.xssf.usermodel.XSSFWorkbook workbook,
+							String oneSheetName, boolean useRegex) {
+
+						java.util.List<org.apache.poi.xssf.usermodel.XSSFSheet> list = new java.util.ArrayList<org.apache.poi.xssf.usermodel.XSSFSheet>();
+
+						if (useRegex) {// this part process the regex issue
+
+							java.util.regex.Pattern pattern = java.util.regex.Pattern
+									.compile(oneSheetName);
+							for (org.apache.poi.ss.usermodel.Sheet sheet : workbook) {
+								String sheetName = sheet.getSheetName();
+								java.util.regex.Matcher matcher = pattern
+										.matcher(sheetName);
+								if (matcher.matches()) {
+									if (sheet != null) {
+										list.add((org.apache.poi.xssf.usermodel.XSSFSheet) sheet);
+									}
+								}
+							}
+
+						} else {
+							org.apache.poi.xssf.usermodel.XSSFSheet sheet = (org.apache.poi.xssf.usermodel.XSSFSheet) workbook
+									.getSheet(oneSheetName);
+							if (sheet != null) {
+								list.add(sheet);
+							}
+
+						}
+
+						return list;
+					}
+
+					public java.util.List<org.apache.poi.xssf.usermodel.XSSFSheet> getSheets(
+							org.apache.poi.xssf.usermodel.XSSFWorkbook workbook,
+							int index, boolean useRegex) {
+						java.util.List<org.apache.poi.xssf.usermodel.XSSFSheet> list = new java.util.ArrayList<org.apache.poi.xssf.usermodel.XSSFSheet>();
+						org.apache.poi.xssf.usermodel.XSSFSheet sheet = (org.apache.poi.xssf.usermodel.XSSFSheet) workbook
+								.getSheetAt(index);
+						if (sheet != null) {
+							list.add(sheet);
+						}
+						return list;
+					}
+
+				}
+				RegexUtil_tFileInputExcel_1 regexUtil_tFileInputExcel_1 = new RegexUtil_tFileInputExcel_1();
+
+				Object source_tFileInputExcel_1 = "C:/Talend/REP_FORM/SOURCE/cli.xlsx";
+				org.apache.poi.xssf.usermodel.XSSFWorkbook workbook_tFileInputExcel_1 = null;
+
+				if (source_tFileInputExcel_1 instanceof String) {
+					workbook_tFileInputExcel_1 = new org.apache.poi.xssf.usermodel.XSSFWorkbook(
+							(String) source_tFileInputExcel_1);
+				} else if (source_tFileInputExcel_1 instanceof java.io.InputStream) {
+					workbook_tFileInputExcel_1 = new org.apache.poi.xssf.usermodel.XSSFWorkbook(
+							(java.io.InputStream) source_tFileInputExcel_1);
+				} else {
+					workbook_tFileInputExcel_1 = null;
+					throw new java.lang.Exception(
+							"The data source should be specified as Inputstream or File Path!");
+				}
+				try {
+
+					java.util.List<org.apache.poi.xssf.usermodel.XSSFSheet> sheetList_tFileInputExcel_1 = new java.util.ArrayList<org.apache.poi.xssf.usermodel.XSSFSheet>();
+					for (org.apache.poi.ss.usermodel.Sheet sheet_tFileInputExcel_1 : workbook_tFileInputExcel_1) {
+						sheetList_tFileInputExcel_1
+								.add((org.apache.poi.xssf.usermodel.XSSFSheet) sheet_tFileInputExcel_1);
+					}
+					if (sheetList_tFileInputExcel_1.size() <= 0) {
+						throw new RuntimeException("Special sheets not exist!");
+					}
+
+					java.util.List<org.apache.poi.xssf.usermodel.XSSFSheet> sheetList_FilterNull_tFileInputExcel_1 = new java.util.ArrayList<org.apache.poi.xssf.usermodel.XSSFSheet>();
+					for (org.apache.poi.xssf.usermodel.XSSFSheet sheet_FilterNull_tFileInputExcel_1 : sheetList_tFileInputExcel_1) {
+						if (sheet_FilterNull_tFileInputExcel_1 != null
+								&& sheetList_FilterNull_tFileInputExcel_1
+										.iterator() != null
+								&& sheet_FilterNull_tFileInputExcel_1
+										.iterator().hasNext()) {
+							sheetList_FilterNull_tFileInputExcel_1
+									.add(sheet_FilterNull_tFileInputExcel_1);
+						}
+					}
+					sheetList_tFileInputExcel_1 = sheetList_FilterNull_tFileInputExcel_1;
+					if (sheetList_tFileInputExcel_1.size() > 0) {
+						int nb_line_tFileInputExcel_1 = 0;
+
+						int begin_line_tFileInputExcel_1 = 0;
+
+						int footer_input_tFileInputExcel_1 = 0;
+
+						int end_line_tFileInputExcel_1 = 0;
+						for (org.apache.poi.xssf.usermodel.XSSFSheet sheet_tFileInputExcel_1 : sheetList_tFileInputExcel_1) {
+							end_line_tFileInputExcel_1 += (sheet_tFileInputExcel_1
+									.getLastRowNum() + 1);
+						}
+						end_line_tFileInputExcel_1 -= footer_input_tFileInputExcel_1;
+						int limit_tFileInputExcel_1 = -1;
+						int start_column_tFileInputExcel_1 = 1 - 1;
+						int end_column_tFileInputExcel_1 = -1;
+
+						org.apache.poi.xssf.usermodel.XSSFRow row_tFileInputExcel_1 = null;
+						org.apache.poi.xssf.usermodel.XSSFSheet sheet_tFileInputExcel_1 = sheetList_tFileInputExcel_1
+								.get(0);
+						int rowCount_tFileInputExcel_1 = 0;
+						int sheetIndex_tFileInputExcel_1 = 0;
+						int currentRows_tFileInputExcel_1 = (sheetList_tFileInputExcel_1
+								.get(0).getLastRowNum() + 1);
+
+						// for the number format
+						java.text.DecimalFormat df_tFileInputExcel_1 = new java.text.DecimalFormat(
+								"#.####################################");
+						char decimalChar_tFileInputExcel_1 = df_tFileInputExcel_1
+								.getDecimalFormatSymbols()
+								.getDecimalSeparator();
+
+						for (int i_tFileInputExcel_1 = begin_line_tFileInputExcel_1; i_tFileInputExcel_1 < end_line_tFileInputExcel_1; i_tFileInputExcel_1++) {
+
+							int emptyColumnCount_tFileInputExcel_1 = 0;
+
+							if (limit_tFileInputExcel_1 != -1
+									&& nb_line_tFileInputExcel_1 >= limit_tFileInputExcel_1) {
+								break;
+							}
+
+							while (i_tFileInputExcel_1 >= rowCount_tFileInputExcel_1
+									+ currentRows_tFileInputExcel_1) {
+								rowCount_tFileInputExcel_1 += currentRows_tFileInputExcel_1;
+								sheet_tFileInputExcel_1 = sheetList_tFileInputExcel_1
+										.get(++sheetIndex_tFileInputExcel_1);
+								currentRows_tFileInputExcel_1 = (sheet_tFileInputExcel_1
+										.getLastRowNum() + 1);
+							}
+							globalMap.put("tFileInputExcel_1_CURRENT_SHEET",
+									sheet_tFileInputExcel_1.getSheetName());
+							if (rowCount_tFileInputExcel_1 <= i_tFileInputExcel_1) {
+								row_tFileInputExcel_1 = sheet_tFileInputExcel_1
+										.getRow(i_tFileInputExcel_1
+												- rowCount_tFileInputExcel_1);
+							}
+							row1 = null;
+							int tempRowLength_tFileInputExcel_1 = 7;
+
+							int columnIndex_tFileInputExcel_1 = 0;
+
+							String[] temp_row_tFileInputExcel_1 = new String[tempRowLength_tFileInputExcel_1];
+							int excel_end_column_tFileInputExcel_1;
+							if (row_tFileInputExcel_1 == null) {
+								excel_end_column_tFileInputExcel_1 = 0;
+							} else {
+								excel_end_column_tFileInputExcel_1 = row_tFileInputExcel_1
+										.getLastCellNum();
+							}
+							int actual_end_column_tFileInputExcel_1;
+							if (end_column_tFileInputExcel_1 == -1) {
+								actual_end_column_tFileInputExcel_1 = excel_end_column_tFileInputExcel_1;
+							} else {
+								actual_end_column_tFileInputExcel_1 = end_column_tFileInputExcel_1 > excel_end_column_tFileInputExcel_1 ? excel_end_column_tFileInputExcel_1
+										: end_column_tFileInputExcel_1;
+							}
+							org.apache.poi.ss.formula.eval.NumberEval ne_tFileInputExcel_1 = null;
+							for (int i = 0; i < tempRowLength_tFileInputExcel_1; i++) {
+								if (i + start_column_tFileInputExcel_1 < actual_end_column_tFileInputExcel_1) {
+									org.apache.poi.ss.usermodel.Cell cell_tFileInputExcel_1 = row_tFileInputExcel_1
+											.getCell(i
+													+ start_column_tFileInputExcel_1);
+									if (cell_tFileInputExcel_1 != null) {
+										switch (cell_tFileInputExcel_1
+												.getCellType()) {
+										case org.apache.poi.ss.usermodel.Cell.CELL_TYPE_STRING:
+											temp_row_tFileInputExcel_1[i] = cell_tFileInputExcel_1
+													.getRichStringCellValue()
+													.getString();
+											break;
+										case org.apache.poi.ss.usermodel.Cell.CELL_TYPE_NUMERIC:
+											if (org.apache.poi.ss.usermodel.DateUtil
+													.isCellDateFormatted(cell_tFileInputExcel_1)) {
+												temp_row_tFileInputExcel_1[i] = cell_tFileInputExcel_1
+														.getDateCellValue()
+														.toString();
+											} else {
+												temp_row_tFileInputExcel_1[i] = df_tFileInputExcel_1
+														.format(cell_tFileInputExcel_1
+																.getNumericCellValue());
+											}
+											break;
+										case org.apache.poi.ss.usermodel.Cell.CELL_TYPE_BOOLEAN:
+											temp_row_tFileInputExcel_1[i] = String
+													.valueOf(cell_tFileInputExcel_1
+															.getBooleanCellValue());
+											break;
+										case org.apache.poi.ss.usermodel.Cell.CELL_TYPE_FORMULA:
+											switch (cell_tFileInputExcel_1
+													.getCachedFormulaResultType()) {
+											case org.apache.poi.ss.usermodel.Cell.CELL_TYPE_STRING:
+												temp_row_tFileInputExcel_1[i] = cell_tFileInputExcel_1
+														.getRichStringCellValue()
+														.getString();
+												break;
+											case org.apache.poi.ss.usermodel.Cell.CELL_TYPE_NUMERIC:
+												if (org.apache.poi.ss.usermodel.DateUtil
+														.isCellDateFormatted(cell_tFileInputExcel_1)) {
+													temp_row_tFileInputExcel_1[i] = cell_tFileInputExcel_1
+															.getDateCellValue()
+															.toString();
+												} else {
+													ne_tFileInputExcel_1 = new org.apache.poi.ss.formula.eval.NumberEval(
+															cell_tFileInputExcel_1
+																	.getNumericCellValue());
+													temp_row_tFileInputExcel_1[i] = ne_tFileInputExcel_1
+															.getStringValue();
+												}
+												break;
+											case org.apache.poi.ss.usermodel.Cell.CELL_TYPE_BOOLEAN:
+												temp_row_tFileInputExcel_1[i] = String
+														.valueOf(cell_tFileInputExcel_1
+																.getBooleanCellValue());
+												break;
+											default:
+												temp_row_tFileInputExcel_1[i] = "";
+											}
+											break;
+										default:
+											temp_row_tFileInputExcel_1[i] = "";
+										}
+									} else {
+										temp_row_tFileInputExcel_1[i] = "";
+									}
+
+								} else {
+									temp_row_tFileInputExcel_1[i] = "";
+								}
+							}
+							boolean whetherReject_tFileInputExcel_1 = false;
+							row1 = new row1Struct();
+							int curColNum_tFileInputExcel_1 = -1;
+							String curColName_tFileInputExcel_1 = "";
+							try {
+								columnIndex_tFileInputExcel_1 = 0;
+
+								if (temp_row_tFileInputExcel_1[columnIndex_tFileInputExcel_1]
+										.length() > 0) {
+									curColNum_tFileInputExcel_1 = columnIndex_tFileInputExcel_1
+											+ start_column_tFileInputExcel_1
+											+ 1;
+									curColName_tFileInputExcel_1 = "CustomerID";
+
+									row1.CustomerID = temp_row_tFileInputExcel_1[columnIndex_tFileInputExcel_1];
+								} else {
+									row1.CustomerID = null;
+									emptyColumnCount_tFileInputExcel_1++;
+								}
+								columnIndex_tFileInputExcel_1 = 1;
+
+								if (temp_row_tFileInputExcel_1[columnIndex_tFileInputExcel_1]
+										.length() > 0) {
+									curColNum_tFileInputExcel_1 = columnIndex_tFileInputExcel_1
+											+ start_column_tFileInputExcel_1
+											+ 1;
+									curColName_tFileInputExcel_1 = "CustomerName";
+
+									row1.CustomerName = temp_row_tFileInputExcel_1[columnIndex_tFileInputExcel_1];
+								} else {
+									row1.CustomerName = null;
+									emptyColumnCount_tFileInputExcel_1++;
+								}
+								columnIndex_tFileInputExcel_1 = 2;
+
+								if (temp_row_tFileInputExcel_1[columnIndex_tFileInputExcel_1]
+										.length() > 0) {
+									curColNum_tFileInputExcel_1 = columnIndex_tFileInputExcel_1
+											+ start_column_tFileInputExcel_1
+											+ 1;
+									curColName_tFileInputExcel_1 = "ContactName";
+
+									row1.ContactName = temp_row_tFileInputExcel_1[columnIndex_tFileInputExcel_1];
+								} else {
+									row1.ContactName = null;
+									emptyColumnCount_tFileInputExcel_1++;
+								}
+								columnIndex_tFileInputExcel_1 = 3;
+
+								if (temp_row_tFileInputExcel_1[columnIndex_tFileInputExcel_1]
+										.length() > 0) {
+									curColNum_tFileInputExcel_1 = columnIndex_tFileInputExcel_1
+											+ start_column_tFileInputExcel_1
+											+ 1;
+									curColName_tFileInputExcel_1 = "Adress";
+
+									row1.Adress = temp_row_tFileInputExcel_1[columnIndex_tFileInputExcel_1];
+								} else {
+									row1.Adress = null;
+									emptyColumnCount_tFileInputExcel_1++;
+								}
+								columnIndex_tFileInputExcel_1 = 4;
+
+								if (temp_row_tFileInputExcel_1[columnIndex_tFileInputExcel_1]
+										.length() > 0) {
+									curColNum_tFileInputExcel_1 = columnIndex_tFileInputExcel_1
+											+ start_column_tFileInputExcel_1
+											+ 1;
+									curColName_tFileInputExcel_1 = "City";
+
+									row1.City = temp_row_tFileInputExcel_1[columnIndex_tFileInputExcel_1];
+								} else {
+									row1.City = null;
+									emptyColumnCount_tFileInputExcel_1++;
+								}
+								columnIndex_tFileInputExcel_1 = 5;
+
+								if (temp_row_tFileInputExcel_1[columnIndex_tFileInputExcel_1]
+										.length() > 0) {
+									curColNum_tFileInputExcel_1 = columnIndex_tFileInputExcel_1
+											+ start_column_tFileInputExcel_1
+											+ 1;
+									curColName_tFileInputExcel_1 = "PostalCode";
+
+									row1.PostalCode = temp_row_tFileInputExcel_1[columnIndex_tFileInputExcel_1];
+								} else {
+									row1.PostalCode = null;
+									emptyColumnCount_tFileInputExcel_1++;
+								}
+								columnIndex_tFileInputExcel_1 = 6;
+
+								if (temp_row_tFileInputExcel_1[columnIndex_tFileInputExcel_1]
+										.length() > 0) {
+									curColNum_tFileInputExcel_1 = columnIndex_tFileInputExcel_1
+											+ start_column_tFileInputExcel_1
+											+ 1;
+									curColName_tFileInputExcel_1 = "Country";
+
+									row1.Country = temp_row_tFileInputExcel_1[columnIndex_tFileInputExcel_1];
+								} else {
+									row1.Country = null;
+									emptyColumnCount_tFileInputExcel_1++;
+								}
+
+								nb_line_tFileInputExcel_1++;
+
+							} catch (java.lang.Exception e) {
+								whetherReject_tFileInputExcel_1 = true;
+								System.err.println(e.getMessage());
+								row1 = null;
+							}
+
+							/**
+							 * [tFileInputExcel_1 begin ] stop
+							 */
+
+							/**
+							 * [tFileInputExcel_1 main ] start
+							 */
+
+							currentComponent = "tFileInputExcel_1";
+
+							tos_count_tFileInputExcel_1++;
+
+							/**
+							 * [tFileInputExcel_1 main ] stop
+							 */
+
+							/**
+							 * [tFileInputExcel_1 process_data_begin ] start
+							 */
+
+							currentComponent = "tFileInputExcel_1";
+
+							/**
+							 * [tFileInputExcel_1 process_data_begin ] stop
+							 */
+							// Start of branch "row1"
+							if (row1 != null) {
+
+								/**
+								 * [tLogRow_1 main ] start
+								 */
+
+								currentComponent = "tLogRow_1";
+
+								// row1
+								// row1
+
+								if (execStat) {
+									runStat.updateStatOnConnection("row1"
+											+ iterateId, 1, 1);
+								}
+
+								// /////////////////////
+
+								String[] row_tLogRow_1 = new String[7];
+
+								if (row1.CustomerID != null) { //
+									row_tLogRow_1[0] = String
+											.valueOf(row1.CustomerID);
+
+								} //
+
+								if (row1.CustomerName != null) { //
+									row_tLogRow_1[1] = String
+											.valueOf(row1.CustomerName);
+
+								} //
+
+								if (row1.ContactName != null) { //
+									row_tLogRow_1[2] = String
+											.valueOf(row1.ContactName);
+
+								} //
+
+								if (row1.Adress != null) { //
+									row_tLogRow_1[3] = String
+											.valueOf(row1.Adress);
+
+								} //
+
+								if (row1.City != null) { //
+									row_tLogRow_1[4] = String
+											.valueOf(row1.City);
+
+								} //
+
+								if (row1.PostalCode != null) { //
+									row_tLogRow_1[5] = String
+											.valueOf(row1.PostalCode);
+
+								} //
+
+								if (row1.Country != null) { //
+									row_tLogRow_1[6] = String
+											.valueOf(row1.Country);
+
+								} //
+
+								util_tLogRow_1.addRow(row_tLogRow_1);
+								nb_line_tLogRow_1++;
+								// ////
+
+								// ////
+
+								// /////////////////////
+
+								row2 = row1;
+
+								tos_count_tLogRow_1++;
+
+								/**
+								 * [tLogRow_1 main ] stop
+								 */
+
+								/**
+								 * [tLogRow_1 process_data_begin ] start
+								 */
+
+								currentComponent = "tLogRow_1";
+
+								/**
+								 * [tLogRow_1 process_data_begin ] stop
+								 */
+
+								/**
+								 * [tMsgBox_1 main ] start
+								 */
+
+								currentComponent = "tMsgBox_1";
+
+								// row2
+								// row2
+
+								if (execStat) {
+									runStat.updateStatOnConnection("row2"
+											+ iterateId, 1, 1);
+								}
+
+								int messageIcontMsgBox_1 = javax.swing.JOptionPane.QUESTION_MESSAGE;
+								String titletMsgBox_1 = "Talend Open Studio";
+								String messagetMsgBox_1 = "tout va bien";
+								String resulttMsgBox_1 = null;
+
+								javax.swing.JOptionPane.showMessageDialog(null,
+										messagetMsgBox_1, titletMsgBox_1,
+										messageIcontMsgBox_1);
+								resulttMsgBox_1 = String.valueOf(1);
+
+								globalMap.put("tMsgBox_1_RESULT",
+										resulttMsgBox_1);
+
+								tos_count_tMsgBox_1++;
+
+								/**
+								 * [tMsgBox_1 main ] stop
+								 */
+
+								/**
+								 * [tMsgBox_1 process_data_begin ] start
+								 */
+
+								currentComponent = "tMsgBox_1";
+
+								/**
+								 * [tMsgBox_1 process_data_begin ] stop
+								 */
+
+								/**
+								 * [tMsgBox_1 process_data_end ] start
+								 */
+
+								currentComponent = "tMsgBox_1";
+
+								/**
+								 * [tMsgBox_1 process_data_end ] stop
+								 */
+
+								/**
+								 * [tLogRow_1 process_data_end ] start
+								 */
+
+								currentComponent = "tLogRow_1";
+
+								/**
+								 * [tLogRow_1 process_data_end ] stop
+								 */
+
+							} // End of branch "row1"
+
+							/**
+							 * [tFileInputExcel_1 process_data_end ] start
+							 */
+
+							currentComponent = "tFileInputExcel_1";
+
+							/**
+							 * [tFileInputExcel_1 process_data_end ] stop
+							 */
+
+							/**
+							 * [tFileInputExcel_1 end ] start
+							 */
+
+							currentComponent = "tFileInputExcel_1";
+
+						}
+
+						globalMap.put("tFileInputExcel_1_NB_LINE",
+								nb_line_tFileInputExcel_1);
+
+					}
+
+				} finally {
+
+					if (!(source_tFileInputExcel_1 instanceof java.io.InputStream)) {
+						workbook_tFileInputExcel_1.getPackage().revert();
+					}
+
+				}
+
+				ok_Hash.put("tFileInputExcel_1", true);
+				end_Hash.put("tFileInputExcel_1", System.currentTimeMillis());
 
 				/**
-				 * [tMsgBox_1 process_data_begin ] stop
+				 * [tFileInputExcel_1 end ] stop
 				 */
 
 				/**
-				 * [tMsgBox_1 process_data_end ] start
+				 * [tLogRow_1 end ] start
 				 */
 
-				currentComponent = "tMsgBox_1";
+				currentComponent = "tLogRow_1";
+
+				// ////
+
+				java.io.PrintStream consoleOut_tLogRow_1 = null;
+				if (globalMap.get("tLogRow_CONSOLE") != null) {
+					consoleOut_tLogRow_1 = (java.io.PrintStream) globalMap
+							.get("tLogRow_CONSOLE");
+				} else {
+					consoleOut_tLogRow_1 = new java.io.PrintStream(
+							new java.io.BufferedOutputStream(System.out));
+					globalMap.put("tLogRow_CONSOLE", consoleOut_tLogRow_1);
+				}
+
+				consoleOut_tLogRow_1
+						.println(util_tLogRow_1.format().toString());
+				consoleOut_tLogRow_1.flush();
+				// ////
+				globalMap.put("tLogRow_1_NB_LINE", nb_line_tLogRow_1);
+
+				// /////////////////////
+
+				if (execStat) {
+					if (resourceMap.get("inIterateVComp") == null
+							|| !((Boolean) resourceMap.get("inIterateVComp"))) {
+						runStat.updateStatOnConnection("row1" + iterateId, 2, 0);
+					}
+				}
+
+				ok_Hash.put("tLogRow_1", true);
+				end_Hash.put("tLogRow_1", System.currentTimeMillis());
 
 				/**
-				 * [tMsgBox_1 process_data_end ] stop
+				 * [tLogRow_1 end ] stop
 				 */
 
 				/**
@@ -382,12 +1715,20 @@ public class gitgit implements TalendJob {
 
 				currentComponent = "tMsgBox_1";
 
+				if (execStat) {
+					if (resourceMap.get("inIterateVComp") == null
+							|| !((Boolean) resourceMap.get("inIterateVComp"))) {
+						runStat.updateStatOnConnection("row2" + iterateId, 2, 0);
+					}
+				}
+
 				ok_Hash.put("tMsgBox_1", true);
 				end_Hash.put("tMsgBox_1", System.currentTimeMillis());
 
 				/**
 				 * [tMsgBox_1 end ] stop
 				 */
+
 			}// end the resume
 
 		} catch (java.lang.Exception e) {
@@ -406,6 +1747,26 @@ public class gitgit implements TalendJob {
 			try {
 
 				/**
+				 * [tFileInputExcel_1 finally ] start
+				 */
+
+				currentComponent = "tFileInputExcel_1";
+
+				/**
+				 * [tFileInputExcel_1 finally ] stop
+				 */
+
+				/**
+				 * [tLogRow_1 finally ] start
+				 */
+
+				currentComponent = "tLogRow_1";
+
+				/**
+				 * [tLogRow_1 finally ] stop
+				 */
+
+				/**
 				 * [tMsgBox_1 finally ] start
 				 */
 
@@ -414,6 +1775,7 @@ public class gitgit implements TalendJob {
 				/**
 				 * [tMsgBox_1 finally ] stop
 				 */
+
 			} catch (java.lang.Exception e) {
 				// ignore
 			} catch (java.lang.Error error) {
@@ -422,7 +1784,7 @@ public class gitgit implements TalendJob {
 			resourceMap = null;
 		}
 
-		globalMap.put("tMsgBox_1_SUBPROCESS_STATE", 1);
+		globalMap.put("tFileInputExcel_1_SUBPROCESS_STATE", 1);
 	}
 
 	public String resuming_logs_dir_path = null;
@@ -615,14 +1977,14 @@ public class gitgit implements TalendJob {
 
 		try {
 			errorCode = null;
-			tMsgBox_1Process(globalMap);
+			tFileInputExcel_1Process(globalMap);
 			if (!"failure".equals(status)) {
 				status = "end";
 			}
-		} catch (TalendException e_tMsgBox_1) {
-			globalMap.put("tMsgBox_1_SUBPROCESS_STATE", -1);
+		} catch (TalendException e_tFileInputExcel_1) {
+			globalMap.put("tFileInputExcel_1_SUBPROCESS_STATE", -1);
 
-			e_tMsgBox_1.printStackTrace();
+			e_tFileInputExcel_1.printStackTrace();
 
 		}
 
@@ -781,6 +2143,6 @@ public class gitgit implements TalendJob {
 	ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- * 24064 characters generated by Talend Open Studio for Data Integration on the
- * 10 avril 2020 12:11:21 CEST
+ * 64053 characters generated by Talend Open Studio for Data Integration on the
+ * 14 avril 2020 11:01:57 CEST
  ************************************************************************************************/
